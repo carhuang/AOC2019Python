@@ -1,3 +1,5 @@
+import sys
+sys.path.append("..")
 import reader
 
 class IntcodeComputer:
@@ -35,7 +37,7 @@ class IntcodeComputer:
             switcher[opcode]()
 
 
-program = reader.get_intcode_program("./input/02.txt")
+program = reader.get_intcode_program("../input/02.txt")
 program[1] = 12
 program[2] = 2
 computer = IntcodeComputer(program)

@@ -1,3 +1,5 @@
+import sys
+sys.path.append("..")
 import reader
 
 class IntcodeComputer:
@@ -46,5 +48,5 @@ def get_target_pair(program, target):
                 return 100 * noun + verb
     return 0
 
-program = reader.get_intcode_program("./input/02.txt")
+program = reader.get_intcode_program("../input/02.txt")
 print(get_target_pair(program, 19690720))
