@@ -1,5 +1,3 @@
-import sys
-sys.path.append("..")
 import reader
 
 class IntcodeComputer:
@@ -107,8 +105,19 @@ class IntcodeComputer:
             }
             switcher[instruction]()
 
+phase_setting_sequences = []
+def generate_phase_setting_sequences(setting_choices, phase_setting_seq):
+    if len(setting_choices) == 1:
+        phase_setting_seq.append(setting_choices[0])
+        phase_setting_sequences.append(phase_setting_seq)
+        return
+    else:
+        for phase_setting in setting_choices:
+            generate_phase_setting_sequences(setting_choices.remove(phase_setting), phase_setting_seq.append(phase_setting))
 
-program = reader.get_intcode_program('../input/05.txt')
+generate_phase_setting_sequences(set())
+
+
+
+program = reader.get_intcode_program('../input/07.txt')
 computer = IntcodeComputer(program)
-computer.enter_input(5)
-computer.run()
